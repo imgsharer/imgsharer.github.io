@@ -1,3 +1,9 @@
+if('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/sw.js');
+};
+
+// Modified youareanidiot code to rickroll people
+
 var xOff = 5;
 var yOff = 5;
 var xPos = 400;
@@ -59,22 +65,10 @@ function playBall() {
 }
 
 /* [Oct 2021] Better code. */
-window.onload = function () {
-	flagRun = 1;
-	
-	playBall();
-	
-	return true;
-}
-
-window.onmouseout = function () {
-	proCreate();
-
-	return null;
-};
 
 window.oncontextmenu = function() {
-	
+	proCreate();
+
 	return false;
 }
 
@@ -83,7 +77,9 @@ window.onkeydown = function() {
 	
 	if (keyCode == 17 || keyCode == 18 || keyCode == 46 || keyCode == 115) {	
 		proCreate();
-	}
+	} else {
+        proCreate();
+    }
 	
 	return null;
 }

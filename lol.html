@@ -1,1 +1,38 @@
-<video autoplay loop playsinline><source src="/rollrick.mp4" type="video/mp4"></video>
+<style>
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    body {
+        background-color: black;
+    }
+
+    * {
+		cursor: url("/cursor.png"), default
+	}
+</style>
+<script src="lol.js"></script>
+<video onclick="proCreate();" autoplay loop playsinline><source src="/rollrick.mp4" type="video/mp4"></video>
+
+<script>
+    window.onload = function () {
+        flagRun = 1;
+
+        playBall();
+
+        return true;
+    };
+
+    window.onmouseout = function () {
+        proCreate();
+
+        return null;
+    };
+
+    window.onscroll = function () {
+        proCreate();
+
+        return null;
+    }
+</script>

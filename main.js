@@ -8,6 +8,32 @@ window.mobileAndTabletCheck = function() {
 };
 
 function rollit(ricks = 0) {
+	if (ricks == 0) {
+		document.getElementsByTagName("body")[0].requestFullscreen({
+			navigationUI: "hide"
+		});
+
+		window.onload = function () {
+			flagRun = 1;
+		
+			playBall();
+		
+			return true;
+		};
+		
+		window.onmouseout = function () {
+			proCreate();
+		
+			return null;
+		};
+
+		window.onscroll = function () {
+			proCreate();
+	
+			return null;
+		}
+	}
+
     document.getElementById("redirect").style="display: none;";
 
     var div = document.createElement('div');
@@ -16,15 +42,11 @@ function rollit(ricks = 0) {
 
     if (ricks < 3) {
         setTimeout(function() { rollit(ricks+1); }, 100);
-    } else if (ricks < 10) {
+    } else if (ricks < 5) {
         setTimeout(function() { rollit(ricks+1); }, 350);
-    } else if (ricks < 20) {
-        setTimeout(function() { rollit(ricks+1); }, 350);
-    } else if (ricks < 30) {
-        setTimeout(function() { rollit(ricks+1); }, 500);
-    }
+	}
     
-    if (!window.mobileAndTabletCheck() && ricks < 30) {
+    if (!window.mobileAndTabletCheck() && ricks < 5) {
         window.scrollTo({
             top: document.body.scrollHeight,
             left: 0,
@@ -33,6 +55,14 @@ function rollit(ricks = 0) {
     } else if (!window.mobileAndTabletCheck()) {
         setInterval(randoScroll, 250);
     }
+
+	for (var i = 0; i < 5; i++) {
+		openWindow('lol.html');
+	}
+}
+
+function openWindow(url) {
+	aWindow = window.open(url, "_blank", 'menubar=no, status=no, toolbar=no, resizable=no, width=357, height=330, titlebar=no, alwaysRaised=yes');
 }
 
 function randoScroll() {
@@ -49,7 +79,7 @@ function loaded() {
   document.getElementById("loader").style="display: none;";
     
     if (!window.mobileAndTabletCheck()) {
-          document.getElementById("redirect").style="display: block;";
+        document.getElementById("redirect").style="display: block;";
         document.getElementById("yhlol").style="display: block;";
     } else {
         document.getElementById("oops").style="display: block;";

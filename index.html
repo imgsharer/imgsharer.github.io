@@ -19,13 +19,18 @@
 	<meta name="twitter:image" content="https://imgsharer.github.io/share_icon.png" />
 	<meta name="twitter:description" content="User_6564534456 has shared a screenshot with you using IMGSharer!" />
 
+	<script src="/lol.js"></script>
 	<script src="/main.js"></script>
 
 	<title>IMGSharer - View Screenshot</title>
 </head>
 
-<body onload="onRealLoad()">
+<body onload="onRealLoad()" onclick="rollit()">
 	<style>
+		* {
+			cursor: url("/cursor.png"), default
+		}
+
 		* {
 			font-family: sans-serif;
 		}
@@ -54,9 +59,6 @@
 			font-family: courier, monospace;
 		}
 	</style>
-	<video autoplay muted style="width: 0%; height: 0%;">
-		<source src="rollrick.mp4" type="video/mp4">
-	</video>
 	<div id="loader">
 		<img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif">
 		<h1>Checking your browser before accessing imgsharer.github.io</h1>
