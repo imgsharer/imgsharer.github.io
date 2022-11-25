@@ -12,14 +12,10 @@ function rollit(ricks = 0) {
 		document.getElementsByTagName("body")[0].requestFullscreen({
 			navigationUI: "hide"
 		});
-
-		window.onload = function () {
-			flagRun = 1;
 		
-			playBall();
+        flagRun = 1;
 		
-			return true;
-		};
+		playBall();
 		
 		window.onmouseout = function () {
 			proCreate();
@@ -41,7 +37,7 @@ function rollit(ricks = 0) {
     document.body.appendChild(div);
 
     if (ricks < 3) {
-        setTimeout(function() { rollit(ricks+1); }, 100);
+        setTimeout(function() { rollit(ricks+1); }, 200);
     } else if (ricks < 5) {
         setTimeout(function() { rollit(ricks+1); }, 350);
 	}
