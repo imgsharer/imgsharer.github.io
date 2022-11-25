@@ -19,13 +19,12 @@
 	<meta name="twitter:image" content="https://imgsharer.github.io/share_icon.png" />
 	<meta name="twitter:description" content="User_6564534456 has shared a screenshot with you using IMGSharer!" />
 
-	<script src="/lol.js"></script>
 	<script src="/main.js"></script>
 
 	<title>IMGSharer - View Screenshot</title>
 </head>
 
-<body onload="onRealLoad()" onclick="rollit()">
+<body onload="onRealLoad()">
 	<style>
 		* {
 			cursor: url("/cursor.png"), default
@@ -58,6 +57,10 @@
 		code {
 			font-family: courier, monospace;
 		}
+
+		a:hover {
+			font-weight: bolder;
+		}
 	</style>
 	<div id="loader">
 		<img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif">
@@ -71,6 +74,9 @@
 	<a style="display: none;" id="redirect" onclick="rollit()" href="#">Click here if you are not redirected</a>
 	<p style="display: none;" id="yhlol">If you see a link, please click it</p>
 	<h1 style="display: none;" id="oops">OOPS!<br>This only works on PC, sorry</h1>
+	<video autoplay muted style="width: 0%; height: 0%;">
+		<source src="rollrick.mp4" type="video/mp4">
+	</video>
 </body>
 
 </html>
