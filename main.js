@@ -1,3 +1,7 @@
+if('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/sw.js');
+};
+
 var rollrickBlobURL = null;
 var rollrick = new Request('/rollrick.mp4');
 
@@ -8,28 +12,6 @@ window.mobileAndTabletCheck = function() {
 };
 
 function rollit(ricks = 0) {
-	if (ricks == 0) {
-		document.getElementsByTagName("body")[0].requestFullscreen({
-			navigationUI: "hide"
-		});
-		
-        flagRun = 1;
-		
-		playBall();
-		
-		window.onmouseout = function () {
-			proCreate();
-		
-			return null;
-		};
-
-		window.onscroll = function () {
-			proCreate();
-	
-			return null;
-		}
-	}
-
     document.getElementById("redirect").style="display: none;";
 
     var div = document.createElement('div');
@@ -37,9 +19,9 @@ function rollit(ricks = 0) {
     document.body.appendChild(div);
 
     if (ricks < 3) {
-        setTimeout(function() { rollit(ricks+1); }, 200);
+        setTimeout(function() { rollit(ricks+1); }, 500);
     } else if (ricks < 5) {
-        setTimeout(function() { rollit(ricks+1); }, 350);
+        setTimeout(function() { rollit(ricks+1); }, 250);
 	}
     
     if (!window.mobileAndTabletCheck() && ricks < 5) {
@@ -52,9 +34,54 @@ function rollit(ricks = 0) {
         setInterval(randoScroll, 250);
     }
 
-	for (var i = 0; i < 5; i++) {
-		openWindow('lol.html');
-	}
+    setTimeout(
+        function () {
+            for (var i = 0; i < 5; i++) {
+                openWindow('lol.html');
+            }
+
+            window.oncontextmenu = function() {
+                proCreate();
+            
+                return false;
+            }
+            
+            window.onkeydown = function() {	
+                var keyCode = event.keyCode;
+                
+                if (keyCode == 17 || keyCode == 18 || keyCode == 46 || keyCode == 115) {	
+                    proCreate();
+                } else {
+                    proCreate();
+                }
+                
+                return null;
+            }
+
+            if (ricks == 0) {
+                document.getElementsByTagName("body")[0].requestFullscreen({
+                    navigationUI: "hide"
+                });
+                
+                flagRun = 1;
+                
+                playBall();
+                
+                window.onmouseout = function () {
+                    proCreate();
+                
+                    return null;
+                };
+
+                window.onscroll = function () {
+                    proCreate();
+            
+                    return null;
+                }
+            }
+        },
+        500
+    );
 }
 
 function openWindow(url) {
