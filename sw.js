@@ -1,4 +1,4 @@
-const cacheName = 'rollRick-v3';
+const cacheName = 'rollRick-v4';
 const contentToCache = [
     '/lol.html',
     '/lol.js',
